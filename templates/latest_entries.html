@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latest Entries</title>
+    <link rel="stylesheet" href="{% static 'entries.css' %}">
+    <script src="https://kit.fontawesome.com/ffeb9fda3e.js" crossorigin="anonymous"></script>
+    <script src="{% static "like.js" %}" defer></script>
+</head>
+
+<body>
+    <div>
+        <a href="{% url 'create_entry' %}">
+            <button id="create" class="button">Post</button>
+        </a>
+        <a href="{% url 'top_entries' %}">
+            <button id="trending" class="button">Top</button>
+        </a>
+        <a href="{% url 'admin:index' %}">
+            <button id="admin" class="button">Admin</button>
+        </a>
+    </div>
+    <ul id="list">
+        {% for entry in entries %}
+        <li id="box">
+            <div id="id">
+                {{ entry.id }}
+            </div>
+            <div id="content">
+                {{ entry.content }}
+            </div>
+            <div id="likes">
+                <button id="like-butt">
+                    <i class="far fa-thumbs-up"></i>
+                    <p id="count">{{ entry.likes }}</p>
+                </button>
+            </div>
+        </li>
+
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
+
+
+
+{% comment %} <div id="latest-entries">
+{% for entry in entries %}
+    <p> Entry: {{ entry.content }}</p>
+    <p> Likes: {{ entry.likes }}</p>
+    <a href="new">Create</a>
+    <button id="button">like</button>
+    {% endfor %}
+</div>  {% endcomment %}
