@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Top</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
-    <script src=" {% static 'likeButton.js' %}" defer>
-    </script>
+    <script src="{% static "like.js" %}" defer></script>
 </head>
 
 <body>
     <div class="nav-container">
-        <a href="{% url 'create_entry' %}">
+       <a href="{% url 'create_entry' %}">
             <button class="nav-button">CREATE</button>
         </a>
-        <a href="{% url 'top_entries' %}">
-            <button class="nav-button">MOST LIKES</button>
+       <a href="{% url 'latest_entries' %}">
+            <button class="nav-button">Latest</button>
         </a>
     </div>
     <div>
@@ -43,8 +43,6 @@
             {% endfor %}
         </ul>
     </div>
-
-
 </body>
 
 </html>

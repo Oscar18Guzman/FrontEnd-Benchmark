@@ -5,20 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Post</title>
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
-    <form action="{% url 'create_entry' %}" method="post">
-        <label for="content">
-            {% csrf_token %}
-            <input autofocus required type="text" name="content" placeholder="Make A Post! :D" id="create-input">
-        </label>
-    </form>
+<form action="{% url 'create_entry' %}" method="POST">
+<div class="input-container">
+{% csrf_token %}
+    <div>
+        <input placeholder="Make A Post" id="create-input" required type="text" name="content"> </input>
+    </div>
+</div>
+</form>
+    
 </body>
 </html>
-{% comment %} <form action="{% url 'create_entry' %}" method="POST">
-{% csrf_token %}
-<textarea name="content"  type="text" required></textarea>
-<button>Submit</button>
-</form> {% endcomment %}
